@@ -1,0 +1,53 @@
+<form #form="ngForm" (submit)="onSubmit(form)">
+
+    <input type="hidden" name="empid" [value]="service.formData.empid">
+
+    <div class="mb-3">
+        <label for="empname">Emp Name</label>
+        <input id="empname" class="form-control form-control-lg" placeholder="Enter Employee Name" name="empname"
+            type="text" [(ngModel)]="service.formData.empname" #empname="ngModel" required>
+
+        @if(empname.invalid && empname.touched){
+        <div class="text-danger">
+            Employee name is required
+        </div>
+        }
+    </div>
+    <div class="mb-3">
+        <label for="empposition">Emp position</label>
+        <input id="empposition" class="form-control form-control-lg" placeholder="Enter Employee position"
+            name="empposition" type="text" [(ngModel)]="service.formData.empposition" #empposition="ngModel" required>
+
+        @if(empname.invalid && empname.touched){
+        <div class="text-danger">
+            Employee position is required
+        </div>
+        }
+    </div>
+    <div class="mb-3">
+        <label for="empsalary">Emp salary</label>
+        <input id="empsalary" class="form-control form-control-lg" placeholder="Enter Employee salary" name="empsalary"
+            [(ngModel)]="service.formData.empsalary" #empsalary="ngModel" required>
+        @if(empname.invalid && empname.touched){
+        <div class="text-danger">
+            Employee salary is required
+        </div>
+        }
+    </div>
+    <div class="mb-3">
+        <label for="empmobile">Emp mobile</label>
+        <input id="empmobile" class="form-control form-control-lg" placeholder="Enter Employee mobile" name="empmobile"
+            type="text" [(ngModel)]="service.formData.empmobile" #empmobile="ngModel" required>
+
+        @if(empname.invalid && empname.touched){
+        <div class="text-danger">
+            Employee mobile is required
+        </div>
+        }
+    </div>
+
+    <div class="d-grid">
+        <button class="btn btn-lg btn-success" type="submit">Submit</button>
+        
+    </div>
+</form>

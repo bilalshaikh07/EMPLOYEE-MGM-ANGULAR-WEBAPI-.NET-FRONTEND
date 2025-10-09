@@ -1,0 +1,19 @@
+form{
+    label{
+        text-transform: uppercase;
+         color: #c0bdbd;
+
+        color: grey;
+    }
+
+    input{
+        font-weight: 200;
+
+        ::placeholder{
+            color: #c0bdbd;
+            font-weight: 200;
+        }
+    }
+
+    
+}

@@ -1,0 +1,71 @@
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h1 class="display-5 fw-bold text-primary">👨‍💼 Employee Management</h1>
+    <p class="text-muted">Manage your employee data efficiently</p>
+  </div>
+
+  <div class="row g-4">
+    <!-- Left Side: Form -->
+    <div class="col-md-5">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-header bg-success text-white text-center rounded-top-4">
+          <h5 class="mb-0">Add / Edit Employee</h5>
+        </div>
+        <div class="card-body">
+          <app-employee-detail-form (employeeSaved)="onEmployeeSaved()"></app-employee-detail-form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side: Table -->
+    <div class="col-md-7">
+      <div class="card shadow border-0 rounded-4">
+        <div class="card-header bg-primary text-white text-center rounded-top-4">
+          <h5 class="mb-0">Employee List</h5>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover table-striped table-bordered align-middle mb-0">
+              <thead class="table-dark text-center">
+                <tr>
+                  <th>#ID</th>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Salary</th>
+                  <th>Mobile</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-center">
+                <tr *ngFor="let emp of employeeList; let i = index; trackBy: trackByIndex">
+                  <td>{{ emp.empid }}</td>
+                  <td class="fw-semibold">{{ emp.empname }}</td>
+                  <td>
+                    <span class="badge bg-info text-dark">{{ emp.empposition }}</span>
+                  </td>
+                  <td>
+                    <span class="text-success fw-bold">₹{{ emp.empsalary }}</span>
+                  </td>
+                  <td>{{ emp.empmobile }}</td>
+                  <td>
+                    <div class="d-flex justify-content-center gap-2">
+                      <button class="btn btn-sm btn-warning" (click)="popatedform(emp)">
+                        ✏️ Edit
+                      </button>
+                      <button class="btn btn-sm btn-danger" (click)="OnDelete(emp.empid)">
+                        🗑️ Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr *ngIf="employeeList.length === 0">
+                  <td colspan="6" class="text-muted text-center py-3">No employees found.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
